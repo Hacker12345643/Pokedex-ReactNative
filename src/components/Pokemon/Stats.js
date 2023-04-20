@@ -6,7 +6,20 @@ export default function Stats(props) {
   const { stats } = props;
 
   const barStyles =(num)=>{
-    const color =num>49 ? "#00ac17":"#ff3e3e";
+    num=(num/140)*100;
+    //const color =num>49 ? "#00ac17":"#ff3e3e";
+    if (num <= 20) {
+      color = "#ff3e3e";
+    } else if (num > 20 && num < 45) {
+      color = "#F08700";
+    } else if (num >= 45 && num < 60) {
+      color = "#EFCA08";
+    } else if (num >= 60 && num <78) {
+      color = "#00ac17";
+    }
+    else if (num >= 78){
+      color = "#FF00DF";
+    }
     return {
         backgroundColor: color,
         width: `${num}%`
